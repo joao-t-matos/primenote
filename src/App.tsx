@@ -18,30 +18,45 @@ export enum NavigationScreens {
 const App: FC = () => {
   const [navigation, setNavigation] = useState<string>(NavigationScreens.HOME);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const navigateHandler = (screenName: NavigationScreens) => {
     setNavigation(screenName);
   };
   const toggleMenu = (value: boolean) => {
     setIsMenuOpen(value);
   };
-
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  
   return (
     <StateMachineProvider>
-      <div className="App">
-        <button
-          className="menu-button"
-          onClick={() => {
-            toggleMenu(true);
-          }}
-        >
-          <DensityMediumIcon />
-        </button>
-        {isMenuOpen && (
-          <Menu toggleMenu={toggleMenu} navigateHandler={navigateHandler} />
-        )}
-        {navigation === NavigationScreens.HOME && <Home />}
-        {navigation === NavigationScreens.ABOUT && <About />}
-      </div>
+      <div>
+      <button className={`menu-button ${darkMode? 'button-dark' : 'button-light'}`}
+      onClick={() => {toggleMenu(true)}}><DensityMediumIcon/></button>
+      {
+         isMenuOpen && (
+          <Menu 
+          toggleMenu={toggleMenu}
+          navigateHandler={navigateHandler}
+          toggleDarkMode={toggleDarkMode}
+          darkMode={darkMode}
+          />
+        )
+      }
+      {
+        navigation === NavigationScreens.HOME && (
+          <Home
+          darkMode={darkMode}
+          />
+        )
+      }
+      {
+        navigation === NavigationScreens.ABOUT && (
+          <About/>
+        )
+      }
+    </div>
     </StateMachineProvider>
   );
 };
