@@ -1,5 +1,6 @@
 import React, {FC, useState} from 'react';
 import './App.css';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './components/Menu'; 
@@ -21,7 +22,8 @@ const App: FC = () => {
   
   return (
     <div className="App">
-      <button onClick={() => {toggleMenu(true)}}>Menu</button>
+      <button className="menu-button"
+      onClick={() => {toggleMenu(true)}}><DensityMediumIcon/></button>
       {
          isMenuOpen && (
           <Menu 

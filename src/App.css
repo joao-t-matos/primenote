@@ -48,4 +48,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  z-index: 99;
+}
+
+.menu-button {
+  position: absolute;
+  top: 10px;
+  left:10px;
 }
