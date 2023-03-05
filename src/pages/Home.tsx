@@ -1,31 +1,54 @@
+import React, { FC, useEffect } from "react";
+import { useStateMachine } from "little-state-machine";
+import { updateMode } from "../state/updateState";
+import {
+  Container,
+  CssBaseline,
+  Box,
+  Avatar,
+  Typography,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Button,
+  Grid,
+  Link,
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Copyright } from "@mui/icons-material";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link } from "@mui/material";
-import React, {FC} from "react";
 
 const Home: FC = () => {
-  const placeholder = "placeholder"
+  const { actions } = useStateMachine({
+    updateMode,
+  });
+
+  useEffect(() => {
+    actions.updateMode(true);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
-      <h1>{placeholder}</h1>
+      <h1>Home</h1>
 
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form"  noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -75,6 +98,6 @@ const Home: FC = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </>
-  )
+  );
 };
 export default Home;
