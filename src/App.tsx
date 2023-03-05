@@ -1,9 +1,5 @@
 import React, { FC, useState } from "react";
-import {
-  StateMachineProvider,
-  createStore,
-  useStateMachine,
-} from "little-state-machine";
+import { StateMachineProvider, createStore } from "little-state-machine";
 import "./App.css";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import Home from "./pages/Home";
