@@ -1,23 +1,15 @@
 import React, { FC, useEffect } from "react";
 import { useStateMachine } from "little-state-machine";
 import { updateMode } from "../state/updateState";
-import {
-  Container,
-  CssBaseline,
-  Box,
-  Avatar,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Button,
-  Grid,
-  Link,
-} from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Copyright } from "@mui/icons-material";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link } from "@mui/material";
 
-const Home: FC = () => {
+interface HomeProps {
+  darkMode: boolean;
+};
+
+const Home: FC<HomeProps> = ({darkMode}) => {
   const { actions } = useStateMachine({
     updateMode,
   });
@@ -27,19 +19,21 @@ const Home: FC = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <>
-      <h1>Home</h1>
-
-      <Container component="main" maxWidth="xs">
+      <Container component="main"
+          sx={{
+            minWidth: "100%",
+            height: "100vh",
+            backgroundColor: darkMode ? "rgb(37, 37, 37)": "white",
+          }}>
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: darkMode ? "rgb(37, 37, 37)": "white",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -48,9 +42,8 @@ const Home: FC = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
+          <Box component="form"  noValidate >
             <TextField
-              margin="normal"
               required
               fullWidth
               id="email"

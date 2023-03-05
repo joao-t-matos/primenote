@@ -1,19 +1,30 @@
+import { Switch } from "@mui/material";
 import React, {FC} from "react";
 import { NavigationScreens } from "../App";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import ClearIcon from '@mui/icons-material/Clear';
 
 interface MenuProps {
   toggleMenu: (value: boolean) => void ;
   navigateHandler: (screenName: NavigationScreens) => void;
+  toggleDarkMode: () => void;
+  darkMode: boolean;
 };
 
-const Menu: FC<MenuProps> = ({toggleMenu, navigateHandler}) => {
-
-  const placeholder = "placeholder"
+const Menu: FC<MenuProps> = ({toggleMenu, navigateHandler, toggleDarkMode, darkMode}) => {
   return (
-      <div className="menu">
-        <button onClick={() => {toggleMenu(false)}}>X</button>
-      <button onClick={() => {navigateHandler(NavigationScreens.HOME)}}>Home</button>
-      <button onClick={() => {navigateHandler(NavigationScreens.ABOUT)}}>About</button>
+      <div className={`menu ${darkMode? 'menu-dark': 'menu-light'}`} >
+        <div className="menu-button-container">
+          <button  className="menu-close" onClick={() => {toggleMenu(false)}}><ClearIcon fontSize="inherit"/></button>
+        </div>
+        <button className="menu-row" onClick={() => {navigateHandler(NavigationScreens.HOME)}}>Home</button>
+        <button className="menu-row" onClick={() => {navigateHandler(NavigationScreens.ABOUT)}}>About</button>
+        <div className="dark-mode-switch menu-row">
+          <WbSunnyIcon/>
+          <Switch defaultChecked onChange={() => {toggleDarkMode()}}color="secondary" />
+          <DarkModeIcon/>
+        </div>
       </div>
   )
 };
