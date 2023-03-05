@@ -1,4 +1,5 @@
 .menu {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -6,19 +7,40 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   z-index: 99;
+  animation-name: menu-appear;
+  animation-duration: 0.5s;
+  transition: all .5s;
 }
 
+
 .menu-dark {
-  color: rgb(37, 37, 37) !important;
-  background-color: rgb(228, 228, 228);
+  color: rgba(37, 37, 37, 0.98) !important;
+  background-color: rgb(228, 228, 228, 0.98);
 }
 
 .menu-light {
-  color: rgb(228, 228, 228) !important;
-  background-color: rgb(37, 37, 37);
+  color: rgb(228, 228, 228, 0.98) !important;
+  background-color: rgb(37, 37, 37, 0.98);
+}
+
+.menu-row {
+  height: 10%;
+  margin: 10px 0;
+}
+
+button.menu-row {
+  font-size: 40px;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  transition: color .3s;
+}
+
+button.menu-row:hover {
+  color: #9c27b0;
 }
 
 .menu-button-container {
@@ -30,13 +52,13 @@
   justify-content: flex-start;
   align-items: flex-end;
 }
+
 .menu-close{
   font-size: 30px;
   color: inherit;
   border: none;
   background-color: inherit;
 }
-
 
 .menu-button {
   position: absolute;
@@ -47,6 +69,12 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.dark-mode-switch{
+  display: flex;
+  align-items: center;
+}
+
 .button-dark {
   color: rgb(228, 228, 228);
   background-color: rgb(37, 37, 37);
@@ -57,4 +85,11 @@
   color: rgb(37, 37, 37);
   background-color: rgb(228, 228, 228);
   border: 2px solid rgb(37, 37, 37);
+}
+
+
+
+@keyframes menu-appear {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
 }
