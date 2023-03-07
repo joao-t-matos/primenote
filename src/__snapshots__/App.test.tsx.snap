@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Home as the first screen: Home 1`] = `
+<h1
+  class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+>
+  Home
+</h1>
+`;

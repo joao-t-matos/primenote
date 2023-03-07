@@ -1,15 +1,27 @@
-import React, { FC, useEffect } from "react";
-import { useStateMachine } from "little-state-machine";
-import { updateMode } from "../state/updateState";
-import { Copyright } from "@mui/icons-material";
+import React, { FC, useEffect } from 'react';
+import { useStateMachine } from 'little-state-machine';
+import { updateMode } from '../state/updateState';
+import { Copyright } from '@mui/icons-material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link } from "@mui/material";
+import {
+  Container,
+  CssBaseline,
+  Box,
+  Avatar,
+  Typography,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Button,
+  Grid,
+  Link,
+} from '@mui/material';
 
 interface HomeProps {
   darkMode: boolean;
-};
+}
 
-const Home: FC<HomeProps> = ({darkMode}) => {
+const Home: FC<HomeProps> = ({ darkMode }) => {
   const { actions } = useStateMachine({
     updateMode,
   });
@@ -21,28 +33,30 @@ const Home: FC<HomeProps> = ({darkMode}) => {
   }, []);
   return (
     <>
-      <Container component="main"
-          sx={{
-            minWidth: "100%",
-            height: "100vh",
-            backgroundColor: darkMode ? "rgb(37, 37, 37)": "white",
-          }}>
+      <Container
+        component="main"
+        sx={{
+          minWidth: '100%',
+          height: '100vh',
+          backgroundColor: darkMode ? 'rgb(37, 37, 37)' : 'white',
+        }}
+      >
         <CssBaseline />
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: darkMode ? "rgb(37, 37, 37)": "white",
+            backgroundColor: darkMode ? 'rgb(37, 37, 37)' : 'white',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Home
           </Typography>
-          <Box component="form"  noValidate >
+          <Box component="form" noValidate>
             <TextField
               required
               fullWidth
