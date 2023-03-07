@@ -1,5 +1,5 @@
 import { Switch } from "@mui/material";
-import React, {FC} from "react";
+import React, {FC, MutableRefObject} from "react";
 import { NavigationScreens } from "../App";
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -9,12 +9,13 @@ interface MenuProps {
   toggleMenu: (value: boolean) => void ;
   navigateHandler: (screenName: NavigationScreens) => void;
   toggleDarkMode: () => void;
+  menuRef: MutableRefObject<HTMLDivElement | null>; 
   darkMode: boolean;
 };
 
-const Menu: FC<MenuProps> = ({toggleMenu, navigateHandler, toggleDarkMode, darkMode}) => {
+const Menu: FC<MenuProps> = ({toggleMenu, navigateHandler, toggleDarkMode, menuRef, darkMode}) => {
   return (
-      <div className={`menu ${darkMode? 'menu-dark': 'menu-light'}`} >
+      <div ref={menuRef} className={`menu ${darkMode? 'menu-dark': 'menu-light'}`} >
         <div className="menu-button-container">
           <button  className="menu-close" onClick={() => {toggleMenu(false)}}><ClearIcon fontSize="inherit"/></button>
         </div>
