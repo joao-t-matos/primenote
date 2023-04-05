@@ -85,7 +85,62 @@ button.menu-row:hover {
   border: 2px solid rgb(37, 37, 37);
 }
 
+.markdown-area {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  border-radius: 20px;
+  transition: all .5s;
+}
 
+.markdown-area-light {
+  background-color: rgb(37, 37, 37);
+}
+
+.markdown-area-dark {
+  background-color: rgb(228, 228, 228);
+}
+
+.markdown-area textarea {
+  resize: none;
+  background-color: rgb(209, 209, 209);
+  border: 10px solid rgb(209, 209, 209);
+  border-radius: 20px;
+}
+
+.input-area  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.input-area textarea {
+  width: 90%;
+  height: 90%;
+  color: rgb(84, 84, 84);
+  transition: all .5s;
+}
+
+.input-area textarea:focus-visible {
+  outline: none;
+  background-color: rgb(202, 186, 203);
+  border-color: rgb(202, 186, 203);
+}
+
+.result-area{
+  width: 50%;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+.result-area textarea{
+  width: 90%;
+  height: 40%;
+  margin: auto;
+}
 
 @keyframes menu-appear {
   from {opacity: 0%;}
