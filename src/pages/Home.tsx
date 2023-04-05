@@ -46,7 +46,7 @@ const Home: FC<HomeProps> = ({ darkMode }) => {
       >
         <div className={`markdown-area ${darkMode? 'markdown-area-dark': 'markdown-area-light'}`}>
           <div className="input-area">
-            <textarea></textarea>
+            <textarea placeholder='Input here ...'></textarea>
           </div>
           <div className="result-area">
             <textarea className="result-output" disabled value={"output"}></textarea>
